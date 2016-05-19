@@ -34,7 +34,24 @@
 
     <modules>
         <module>seedbox-manager-transverse</module>
+        <module>seedbox-manager-presentation</module>
+        <module>seedbox-manager-service</module>
+        <module>seedbox-manager-domaine</module>
+        <module>seedbox-manager-api</module>
+        <module>seedbox-manager-batch</module>
     </modules>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
