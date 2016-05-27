@@ -72,7 +72,7 @@ local.properties
 .idea/dictionaries
 .idea/jsLibraryMappings.xml
 *.iml
-.idea
+.idea/
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
