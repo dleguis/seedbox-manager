@@ -13,7 +13,7 @@
 
     <name>seedbox-manager parent POM</name>
 
-    <groupId>net.dleguis</groupId>
+    <groupId>net.dleguis.seedbox</groupId>
     <artifactId>seedbox-manager</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -44,6 +44,11 @@
             <!--<scope>runtime</scope>-->
         </dependency>
 
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>19.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
