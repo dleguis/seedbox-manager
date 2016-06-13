@@ -11,6 +11,21 @@
 
     <artifactId>seedbox-manager-service</artifactId>
     <packaging>jar</packaging>
+    <dependencies>
+
+        <dependency>
+            <groupId>net.dleguis.seedbox</groupId>
+            <artifactId>seedbox-manager-common</artifactId>
+            <version>${version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.dleguis.seedbox</groupId>
+            <artifactId>seedbox-manager-domain</artifactId>
+            <version>${version}</version>
+        </dependency>
+
+    </dependencies>
 
 
 </project>

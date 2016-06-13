@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>Seedbox Manager - Login</title>
+    <title>Seedbox manager - Login</title>
 </head>
 <body>
-<p>login page.</p>
+<p th:text="#{login.message}">Login page default message.</p>
+
+<!-- Login wrapper begins -->
+<div class="loginWrapper">
+    <!-- Current user form -->
+    <form th:action="@{/j_spring_security_check}" method="post">
+        <div class="loginPic">
+            <p>/!\ Login is not working yet /!\</p>
+
+            <p th:if="${(param.error != null) and (param.error[0] == '1')}" th:text="#{login.error}" class="error">Wrong
+                user or password</p>
+        </div>
+
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        <input type="text" id="j_username" name="j_username" autofocus="autofocus" th:placeholder="#{login.username}"
+               placeholder="Username" class="loginUsername"/>
+        <input type="password" id="j_password" name="j_password" th:placeholder="#{login.password}"
+               placeholder="Password" class="loginPassword"/>
+
+        <div class="logControl">
+            <div class="memory"><input type="checkbox" checked="checked" class="check" id="remember1"/><label
+                    for="remember1" th:text="#{login.remember}">Remember me</label></div>
+            <input type="submit" name="submit" th:value="#{login.submit}" value="Login" class="buttonM bBlue"/>
+            <div class="clear"></div>
+            <p><a href="index.html" th:text="#{login.back.home}" th:href="@{/}">Back to home page</a></p>
+            <p><a href="#" th:text="#{login.register}" th:href="@{/register}">inscription</a></p>
+        </div>
+    </form>
+</div>
+
+<!-- Login wrapper ends -->
 </body>
 </html>

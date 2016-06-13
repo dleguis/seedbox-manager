@@ -13,6 +13,19 @@
     <packaging>war</packaging>
 
     <dependencies>
+
+        <dependency>
+            <groupId>net.dleguis.seedbox</groupId>
+            <artifactId>seedbox-manager-service</artifactId>
+            <version>${version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.dleguis.seedbox</groupId>
+            <artifactId>seedbox-manager-common</artifactId>
+            <version>${version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
