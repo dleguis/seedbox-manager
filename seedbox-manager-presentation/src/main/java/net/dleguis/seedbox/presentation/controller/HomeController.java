@@ -32,4 +32,11 @@ public class HomeController {
 
 		return ViewConstants.HOME_PAGE;
 	}
+
+	@RequestMapping(path = { "/error" }, method = RequestMethod.GET)
+	private String error(Model model) {
+
+		LOGGER.error("an error occured.");
+		return ViewConstants.ERROR_PAGE;
+	}
 }

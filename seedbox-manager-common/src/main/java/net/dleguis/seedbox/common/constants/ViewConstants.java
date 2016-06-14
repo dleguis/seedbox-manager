@@ -15,6 +15,11 @@ public class ViewConstants {
 	public static final String LOGIN_PAGE = "login";
 
 	/**
+	 * The constant ERROR_PAGE
+	 */
+	public static final String ERROR_PAGE = "error";
+
+	/**
 	 * Instantiates a new View constants.
 	 */
 	private ViewConstants() {

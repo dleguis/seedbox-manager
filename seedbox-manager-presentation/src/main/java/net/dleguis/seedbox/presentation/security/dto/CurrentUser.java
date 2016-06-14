@@ -5,9 +5,8 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
-/**
- * Created by administrateur on 13/06/16.
- */
+import com.google.common.base.Objects;
+
 public class CurrentUser extends User {
 
 	private String displayName;
@@ -26,5 +25,26 @@ public class CurrentUser extends User {
 
 	public void setDisplayName(String displayName) {
 		this.displayName = displayName;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		if (!super.equals(o)) {
+			return false;
+		}
+
+		CurrentUser that = (CurrentUser) o;
+		return Objects.equal(displayName, that.displayName);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(super.hashCode(), displayName);
 	}
 }

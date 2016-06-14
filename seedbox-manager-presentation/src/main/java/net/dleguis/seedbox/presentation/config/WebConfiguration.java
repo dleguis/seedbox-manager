@@ -1,4 +1,4 @@
-package net.dleguis.seedbox.presentation.configuration;
+package net.dleguis.seedbox.presentation.config;
 
 import java.util.Locale;
 import java.util.Set;
@@ -18,7 +18,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import com.google.common.collect.Sets;
 
 /**
- * The type Web configuration.
+ * The type Web config.
  */
 @Configuration
 public class WebConfiguration extends WebMvcConfigurerAdapter {
