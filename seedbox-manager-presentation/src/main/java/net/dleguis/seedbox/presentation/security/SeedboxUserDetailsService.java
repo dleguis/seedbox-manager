@@ -2,14 +2,14 @@ package net.dleguis.seedbox.presentation.security;
 
 import java.util.HashSet;
 
+import net.dleguis.seedbox.common.dto.UserDto;
+import net.dleguis.seedbox.presentation.security.dto.CurrentUser;
+import net.dleguis.seedbox.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import net.dleguis.seedbox.common.dto.UserDto;
-import net.dleguis.seedbox.presentation.security.dto.CurrentUser;
-import net.dleguis.seedbox.service.UserService;
 
 @Service
 public class SeedboxUserDetailsService implements UserDetailsService {
@@ -18,8 +18,7 @@ public class SeedboxUserDetailsService implements UserDetailsService {
 	private UserService userService;
 
 	@Override
-	public CurrentUser loadUserByUsername(String username)
-			throws UsernameNotFoundException {
+	public CurrentUser loadUserByUsername(String username) {
 
 		UserDto user = userService.getByUsername(username)
 				.orElseThrow(() -> new UsernameNotFoundException(String.format("User with email=%s was not found", username)));

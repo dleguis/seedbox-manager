@@ -11,6 +11,9 @@
 
     <artifactId>seedbox-manager-service</artifactId>
     <packaging>jar</packaging>
+    <properties>
+        <selma.version>0.13</selma.version>
+    </properties>
     <dependencies>
 
         <dependency>
@@ -25,7 +28,71 @@
             <version>${version}</version>
         </dependency>
 
+        <!-- Mapper -->
+        <!-- scope provided because the processor is only needed at compile time-->
+        <dependency>
+            <groupId>fr.xebia.extras</groupId>
+            <artifactId>selma-processor</artifactId>
+            <version>${selma.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- This is the only real dependency you will have in your binaries -->
+        <dependency>
+            <groupId>fr.xebia.extras</groupId>
+            <artifactId>selma</artifactId>
+            <version>${selma.version}</version>
+        </dependency>
+
     </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <showWarnings>true</showWarnings>
+                    <optimize>true</optimize>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.bsc.maven</groupId>
+                <artifactId>maven-processor-plugin</artifactId>
+                <version>2.2.4</version>
+                <configuration>
+                    <defaultOutputDirectory>
+                        ${project.build.directory}/generated-sources
+                    </defaultOutputDirectory>
+                    <processors>
+                        <processor>fr.xebia.extras.selma.codegen.MapperProcessor</processor>
+                    </processors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>process</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>process</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>fr.xebia.extras</groupId>
+                        <artifactId>selma-processor</artifactId>
+                        <version>${selma.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+
+    </build>
 
 
 </project>

@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 /**
  * The type Seedbox manager application.
  */
-@SpringBootApplication(scanBasePackages = { "net.dleguis.seedbox.presentation", "net.dleguis.seedbox.service" })
+@SpringBootApplication(scanBasePackages = { "net.dleguis.seedbox.presentation", "net.dleguis.seedbox.service", "net.dleguis.seedbox.domain" })
 @EnableWebMvc
 public class SeedboxManagerApplication {
 
